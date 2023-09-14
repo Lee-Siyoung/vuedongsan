@@ -3,24 +3,39 @@
     <a v-for="x in menu" :key="x">{{ x }}</a>
   </div>
   <div>
-    <h4 v-for="(y,i) in products" :key="y">{{ products[i] }}<p>50만원</p></h4>
+    <h4>{{ products[0] }}</h4>
+    <p>50만원</p>
+    <button @click="increase">허위매물신고</button>
+    <span>신고수 : {{ Declar }}</span>
+  </div>
+  <div>
+    <h4>{{ products[1] }}</h4>
+    <p>50만원</p>
+  </div>
+  <div>
+    <h4>{{ products[2] }}</h4>
+    <p>50만원</p>
   </div>
 </template>
 
 <script>
-
 export default {
-  name: 'App',
-  data(){
-    return{
-      money:[50,60,70],
-      menu:['Home', 'Shop', "About"],
-      products : ['역삼동원룸', '천호동원룸', '마포구원룸'],
-    }
+  name: "App",
+  data() {
+    return {
+      Declar: 0,
+      money: [50, 60, 70],
+      menu: ["Home", "Shop", "About"],
+      products: ["역삼동원룸", "천호동원룸", "마포구원룸"],
+    };
   },
-  components: {
-  }
-}
+  methods: {
+    increase() {
+      this.Declar += 1;
+    },
+  },
+  components: {},
+};
 </script>
 
 <style>
@@ -31,13 +46,13 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
-.menu{
+.menu {
   background: darkslateblue;
   padding: 15px;
   border-radius: 5px;
 }
-.menu a{
+.menu a {
   color: white;
-  padding:10px;
+  padding: 10px;
 }
 </style>
